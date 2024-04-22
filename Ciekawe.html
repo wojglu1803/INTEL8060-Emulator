@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTEL 8086</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .kontener_rejestry {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .rejestry {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .rejestr {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .pole_rejestru {
+            width: calc(100% - 16px);
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .rozkazy {
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        select {
+            width: calc(100% - 16px);
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="kontener_rejestry">
+        <h1>INTEL 8086</h1>
+
+        <div class="rejestry">
+            <div class="rejestr" data-index="0">
+                AX:
+                <input
+                    type="text"
+                    name="liczba_rejestru"
+                    maxlength="2"
+                    class="pole_rejestru"
+                    id="ax"
+                />
+            </div>
+
+            <div class="rejestr" data-index="1">
+                BX:
+                <input
+                    type="text"
+                    name="liczba_rejestru"
+                    maxlength="2"
+                    class="pole_rejestru"
+                    id="bx"
+                />
+            </div>
+
+            <div class="rejestr" data-index="2">
+                CX:
+                <input
+                    type="text"
+                    name="liczba_rejestru"
+                    maxlength="2"
+                    class="pole_rejestru"
+                    id="cx"
+                />
+            </div>
+
+            <div class="rejestr" data-index="3">
+                DX:
+                <input
+                    type="text"
+                    name="liczba_rejestru"
+                    maxlength="2"
+                    class="pole_rejestru"
+                    id="dx"
+                />
+            </div>
+
+            <!-- New register input field -->
+            <div class="rejestr" data-index="4">
+                EAX:
+                <input
+                    type="text"
+                    name="liczba_rejestru"
+                    maxlength="2"
+                    class="pole_rejestru"
+                    id="eax"
+                />
+            </div>
+        </div>
+
+        <div class="rozkazy">
+            <label for="rozkaz">Wybierz rozkaz:</label>
+            <select id="rozkaz" class="rozkaz">
+                <option value="MOV">MOV</option>
+                <option value="XCHG">XCHG</option>
+                <option value="INC">INC</option>
+                <option value="DEC">DEC</option>
+                <option value="NOT">NOT</option>
+                <option value="NEG">NEG</option>
+            </select>
+
+            <label for="sourceRegister">Z rejestru: (Jeśli rozkaz dotyczy pojedyńczego rejestru)</label>
+            <select id="sourceRegister">
+                <option value="AX">AX</option>
+                <option value="BX">BX</option>
+                <option value="CX">CX</option>
+                <option value="DX">DX</option>
+            </select>
+
+            <label for="destinationRegister">Do rejestru:</label>
+            <select id="destinationRegister">
+                <option value="AX">AX</option>
+                <option value="BX">BX</option>
+                <option value="CX">CX</option>
+                <option value="DX">DX</option>
+                <option value="EAX">EAX</option> <!-- Added the new register -->
+            </select>
+
+            <button onclick="executeInstruction()">Wykonaj</button>
+            <button onclick="randomizeRegisters()">Losowe rejestry</button>
+        </div>
+
+        <div id="result" style="margin-top: 20px;"></div>
+    </div>
+
+    <script>
+        function executeInstruction() {
+            // ... (your existing JavaScript code)
+        }
+
+        function randomizeRegisters() {
+            document.getElementById('ax').value = Math.floor(Math.random() * 10) + 1;
+            document.getElementById('bx').value = Math.floor(Math.random() * 10) + 1;
+            document.getElementById('cx').value = Math.floor(Math.random() * 10) + 1;
+            document.getElementById('dx').value = Math.floor(Math.random() * 10) + 1;
+            document.getElementById('eax').value = Math.floor(Math.random() * 10) + 1;
+            document.getElementById('result').innerText = '';
+        }
+    </script>
+</body>
+</html>
